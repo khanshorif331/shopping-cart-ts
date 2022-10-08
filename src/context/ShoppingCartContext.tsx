@@ -63,7 +63,6 @@ export const ShoppingCartProvider = ({
 		})
 	}
 
-	// deeecrease froom cart has been created
 
 	const removeFromCart = (id: number) => {
 		setCartItems(currItems => {
