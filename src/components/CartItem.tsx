@@ -8,9 +8,11 @@ type CartItemProps = {
 	quantity: number
 }
 
+type ItemType = any
+
 export const CartItem = ({ id, quantity }: CartItemProps) => {
 	const { removeFromCart, increaseCartQuantity } = useShoppingCart()
-	const item = storeItems.find(i => i.id === id)
+	const item: ItemType = storeItems.find(i => i.id === id)
 
 	if (item === null) return null
 	return (
