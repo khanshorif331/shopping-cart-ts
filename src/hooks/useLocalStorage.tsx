@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // T indicates generic type means any type actually
 
@@ -13,4 +13,10 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 			return initialValue
 		}
 	})
+
+	useEffect(() => {
+		localStorage.setItem(key, JSON.stringify(value))
+	}, [key, value])
+
+	return [value, setValue] as [typeof value, typeof setValue]
 }
